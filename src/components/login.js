@@ -104,6 +104,8 @@ export default class Login extends React.Component {
     }).catch((error) => {
       console.log('error', error);
     });
+
+    browserHistory.push(`/qr/unknown`);
   };
 
   getReasonClass = function () {

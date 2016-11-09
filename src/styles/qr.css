@@ -19,3 +19,7 @@
   top: -100px;
   text-align: center;
 }
+
+.warning {
+  color: red
+}
