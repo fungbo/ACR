@@ -1,0 +1,21 @@
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.inner {
+  margin: auto;
+  padding: 10px;
+  width: 400px;
+  position: relative;
+  top: -100px;
+  text-align: center;
+}
