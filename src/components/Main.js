@@ -12,7 +12,7 @@ class AppComponent extends React.Component {
       <MuiThemeProvider>
         <Router history={browserHistory}>
           <Route path="/" component={Login}/>
-          <Route path="/qr/:code" component={QRPage}/>
+          <Route path="/qr/:uuid" component={QRPage}/>
         </Router>
       </MuiThemeProvider>
     );

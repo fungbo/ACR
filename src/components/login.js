@@ -86,11 +86,11 @@ export default class Login extends React.Component {
       method: 'post',
       url: '/api/v1/requirers/',
       data: {
-        requirer_name: this.state.name,
-        requirer_phone_number: this.state.tel,
-        requirer_start: this.state.startTime,
-        requirer_end: this.state.endTime,
-        requirer_reason: this.state.reason == OTHER ? this.state.detail : this.state.reason,
+        name: this.state.name,
+        phone_number: this.state.tel,
+        start: this.state.startTime,
+        end: this.state.endTime,
+        reason: this.state.reason == OTHER ? this.state.detail : this.state.reason,
       },
       responseType: 'json',
       auth: {
@@ -98,14 +98,8 @@ export default class Login extends React.Component {
         password: 'password123'
       }
     }).then((response) => {
-      console.log('response', response);
-      let data = 'q1w2e3';
-      browserHistory.push(`/qr/${data}`);
-    }).catch((error) => {
-      console.log('error', error);
+      browserHistory.push(`/qr/${response.data.uuid}`)
     });
-
-    browserHistory.push(`/qr/unknown`);
   };
 
   getReasonClass = function () {
