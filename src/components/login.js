@@ -12,6 +12,8 @@ import axios from "axios";
 import {browserHistory} from "react-router";
 
 const OTHER = '其他...';
+const SUMMIT = '提交';
+const PROCESSING = '处理中，请稍后';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -23,7 +25,8 @@ export default class Login extends React.Component {
       isReasonValid: true,
       isDetailValid: true,
       isStartTimeValid: true,
-      isEndTimeValid: true
+      isEndTimeValid: true,
+      btnText: SUMMIT
     }
   }
 
@@ -98,8 +101,11 @@ export default class Login extends React.Component {
         password: 'password123'
       }
     }).then((response) => {
-      browserHistory.push(`/qr/${response.data.uuid}`)
+      this.setState({btnText: SUMMIT});
+      browserHistory.push(`/qr/${response.data.uuid}`);
     });
+
+    this.setState({btnText: PROCESSING});
   };
 
   getReasonClass = function () {
@@ -174,7 +180,7 @@ export default class Login extends React.Component {
                         errorText={`${this.state.isStartTimeValid ? '' : '开始时间不能为空'}`}/>
             <TimePicker hintText="结束时间" value={this.state.endTime} onChange={this.inputEndTime}
                         errorText={`${this.state.isEndTimeValid ? '' : '结束时间不能为空或早于开始时间'}`}/>
-            <Button className={Style.btn} primary={true} fullWidth={true} onClick={this.submit} label="提交">
+            <Button className={Style.btn} primary={true} fullWidth={true} onClick={this.submit} label={this.state.btnText}>
               </Button>
           </Paper>
         </div>
