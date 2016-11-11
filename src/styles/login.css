@@ -31,3 +31,13 @@
 .reason {
   display: none !important;
 }
+
+@media (max-width: 768px) {
+  .inner {
+    margin: auto;
+    padding: 10px;
+    width: 380px;
+    position: relative;
+    top: 200px;
+  }
+}
