@@ -23,3 +23,23 @@
 .warning {
   color: red
 }
+
+@media (max-width: 768px) {
+  .inner {
+    margin: auto;
+    padding: 10px;
+    width: 380px;
+    position: relative;
+    top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    margin: auto;
+    padding: 10px;
+    width: 350px;
+    position: relative;
+    top: 10px;
+  }
+}
