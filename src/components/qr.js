@@ -9,7 +9,6 @@ import axios from "axios";
 const WAIT = 'wait';
 const APPROVED = 'approved';
 const REFUSED = 'refused';
-const UNKNOWN = 'unknown';
 
 export default class RQPage extends React.Component {
   constructor(props) {
@@ -61,13 +60,23 @@ export default class RQPage extends React.Component {
     return this.renderErrorPage();
   };
 
+  getPosition = () => {
+    if (screen.width < 380) {
+      return {size: 80, left: 125};
+    } else if (screen.width < 415) {
+      return {size: 80, left: 120};
+    }
+
+    return {size: 100, left: 150};
+  };
+
   renderWaitPage = () => {
     this.poll();
     return <Card>
       <CardHeader title="" subtitle="">
-        <RefreshIndicator size={100} left={150} top={20} status="loading"/>
+        <RefreshIndicator size={this.getPosition().size} left={this.getPosition().left} top={20} status="loading"/>
       </CardHeader>
-      <CardTitle title="loading" subtitle=""/>
+      <CardTitle title="l" subtitle=""/>
       <CardText>
         <p>Waiting for the admin's confirmation</p>
         <p className={Style.warning}>Do Not close this page</p>
