@@ -105,8 +105,6 @@ export default class Login extends React.Component {
       browserHistory.push(`/qr/${response.data.uuid}`);
     });
 
-    browserHistory.push(`/qr/1234456`);
-
     this.setState({btnText: PROCESSING});
   };
 
